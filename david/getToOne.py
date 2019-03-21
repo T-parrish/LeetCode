@@ -1,32 +1,40 @@
-# Find shortest path to 1 given an int
-# You can divide by 3 if int is divisible by 3
-# You can divide by 2 if int is divisible by 2
-# You can add 1
-
-class GetToOne(self, int):
-  def __init__(self, int):
-    self.int = int
-
-  buffer = [[int]]
-  allUniqueNodes = set([i for sub in buffer for i in sub])
-  counter = 0
-  
-  def parseTree(self, int):
-    cache = []
-    while true:
-      for i in self.buffer[self.counter]:
-        if int % 3 === 0:
-          cache.push(int/3)
-        if int % 2 === 0:
-          cache.push(int/2)
-        cache.push(int + 1)
-
-      self.buffer.push(cache)
-      self.counter += 1
-      cache = []
-
-      if 1 in self.buffer[self.counter]:
-        return self.counter
-        break
+class GetToOne:
+    def __init__(self, number):
+        self.number = number
+        self.buffer = [[number]]
+    
+    counter = 0
+    switch = False
 
     
+    def parseTree(self):
+        cache=[] 
+        
+        while self.switch == False:
+            window = self.buffer[self.counter]
+            for i in window:
+                if i %3 == 0:
+                    cache.append(int(i / 3))
+                if i %2 == 0:
+                    cache.append(int(i / 2))
+                cache.append(i + 1)
+                
+            self.buffer.append(cache)
+                    
+            if 1 in self.buffer[self.counter]:
+                self.switch = True
+                return self.counter
+                break
+                
+            self.counter+=1
+            cache=[]
+            
+        return self.counter
+        
+    
+            
+            
+            
+        
+
+        
