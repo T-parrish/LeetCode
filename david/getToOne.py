@@ -4,13 +4,11 @@ class GetToOne:
         self.buffer = [[number]]
     
     counter = 0
-    switch = False
-
     
     def parseTree(self):
         cache=[] 
         
-        while self.switch == False:
+        while True:
             window = self.buffer[self.counter]
             for i in window:
                 if i %3 == 0:
@@ -22,19 +20,7 @@ class GetToOne:
             self.buffer.append(cache)
                     
             if 1 in self.buffer[self.counter]:
-                self.switch = True
                 return self.counter
-                break
                 
             self.counter+=1
             cache=[]
-            
-        return self.counter
-        
-    
-            
-            
-            
-        
-
-        
