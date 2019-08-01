@@ -31,6 +31,8 @@ class Solution(object):
     max_col = [max(col) for col in temp]
     max_row = [max(row) for row in grid]
 
+    # Increment counter by difference between the current value
+    # And the minimum between the row max and the col max
     for i in range(0, grid_size):
       for j in range(0, grid_size):
         target_height = min(max_col[j], max_row[i])
